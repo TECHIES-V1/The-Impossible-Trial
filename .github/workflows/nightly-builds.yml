@@ -1,0 +1,55 @@
+name: Nightly Build & Test
+
+on:
+  schedule:
+    # Run at 2 AM UTC every day
+    - cron: '0 2 * * *'
+  # Also allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: integration/next
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Log build info
+        run: |
+          echo "Build Date: $(date)"
+          echo "Branch: ${{ github.ref }}"
+          echo "Commit: ${{ github.sha }}"
+          
+      - name: Run smoke tests
+        run: |
+          echo "Running smoke tests..."
+          # Add your test commands here when ready
+          # npm test or ./scripts/smoke-test.sh
+          
+      - name: Generate build report
+        if: always()
+        run: |
+          mkdir -p reports
+          echo "Nightly Build Report - $(date)" > reports/build-summary.txt
+          echo "Status: ${{ job.status }}" >> reports/build-summary.txt
+          
+      - name: Upload build artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-report-${{ github.run_number }}
+          path: reports/
+
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "Build failed! Check logs."
+          # Add Slack/Discord webhook notification here if needed
