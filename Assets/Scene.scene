@@ -288,6 +288,15 @@
     bottom: -20.000000
     right: 15.000000
     top: 20.000000
+- !<AnimationPlayer/4234b253-dc47-4694-b9db-a6c11d8ef9cb>
+  PrefabRemaps:
+    []
+  Name: Animation Player
+  Enabled: true
+  Autoplay: true
+  ClipRangeType: Frames
+  AnimationClips:
+    []
 - !<SceneObject/47af8ecb-a52e-467a-8bb9-1d5a3e485880>
   PrefabRemaps:
     []
@@ -315,7 +324,6 @@
     friendsComponent: true
     friendIndex: true
     autoDownload: true
-    mixamoAnimation: true
     renderOrder: true
     castShadow: true
     meshQuality: true
@@ -328,11 +336,11 @@
     {}
   ScriptInputs:
     "":
-      bitmojiType: !<float> 2.000000
+      bitmojiType: !<float> 1.000000
       friendsComponent: !<reference.Component> 00000000-0000-0000-0000-000000000000
       friendIndex: 0
       autoDownload: true
-      mixamoAnimation: true
+      mixamoAnimation: false
       renderOrder: 0
       castShadow: true
       meshQuality: 0.500000
@@ -423,6 +431,8 @@
     []
   Components:
     - !<own> dabc25e2-b8e8-4571-89f0-677e2ddb4452
+    - !<own> 4234b253-dc47-4694-b9db-a6c11d8ef9cb
+    - !<own> a8e3c649-bd36-4930-94e6-f34aed0cb258
 - !<ScreenTransform/64cdfd42-27ba-4c17-bf37-c41c3508ec6f>
   PrefabRemaps:
     []
@@ -802,14 +812,17 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 80.000000, y: 50.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: -60.000000, z: 0.000000}
+    Position: {x: 80.000000, y: 10.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: -100.000000, z: 0.000000}
     Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
   Components:
     - !<own> 47f9e2b2-d00d-4361-80bd-39b88fbb89d9
+    - !<own> f3faa916-c99a-4ec9-ad29-8230448026fa
+    - !<own> f3d3a258-579b-4854-8447-4cd5e5165370
+    - !<own> dcf1e884-3b8e-4db6-8cea-d9e0efc52e95
 - !<Canvas/a22f814a-1bf2-4de5-9d4c-a185ebb5b27b>
   PrefabRemaps:
     []
@@ -822,6 +835,27 @@
     bottom: -20.000000
     right: 15.000000
     top: 20.000000
+- !<ScriptComponent/a8e3c649-bd36-4930-94e6-f34aed0cb258>
+  PrefabRemaps:
+    []
+  Name: BitmojiAnimationController
+  Enabled: true
+  ScriptAsset: !<reference> acc9cc4e-f3ca-4e7e-804c-c3237d4c6817
+  ScriptInputsDefault:
+    bitmoji3dComponent: true
+    animationAsset: true
+    heavyAnimationAsset: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      bitmoji3dComponent: !<reference.ScriptComponent> dabc25e2-b8e8-4571-89f0-677e2ddb4452
+      animationPlayer: !<reference.AnimationPlayer> f3d3a258-579b-4854-8447-4cd5e5165370
+      animationAsset: !<reference.AnimationAsset> e04710c0-e724-4bcd-bb74-599e672f798e
+      heavyAnimationAsset: !<reference.AnimationAsset> aab7fb26-f695-486f-9fad-d5b87c04ccd7
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/a916fada-c7db-46b6-b80f-fce687d03997>
   PrefabRemaps:
     []
@@ -1626,6 +1660,28 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/dcf1e884-3b8e-4db6-8cea-d9e0efc52e95>
+  PrefabRemaps:
+    []
+  Name: BitmojiAnimationController
+  Enabled: true
+  ScriptAsset: !<reference> 2b5f3250-e47b-4b09-aaff-eac14754f14d
+  ScriptInputsDefault:
+    bitmoji3dComponent: true
+    animationPlayer: true
+    animationAsset: true
+    heavyAnimationAsset: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      bitmoji3dComponent: !<reference.ScriptComponent> 47f9e2b2-d00d-4361-80bd-39b88fbb89d9
+      animationPlayer: !<reference.AnimationPlayer> f3d3a258-579b-4854-8447-4cd5e5165370
+      animationAsset: !<reference.AnimationAsset> ae671b40-5ce3-44bc-b6a1-360c0a7b09c1
+      heavyAnimationAsset: !<reference.AnimationAsset> dc28aacb-5f10-46d2-9c15-7736cb56244e
+  ScriptTypes:
+    "":
+      {}
 - !<ScreenTransform/df3cea88-21f2-4ded-b532-9e053a532b83>
   PrefabRemaps:
     []
@@ -1691,6 +1747,47 @@
   Components:
     - !<own> cef49573-2e26-47eb-90cd-9e5b23fdad04
     - !<own> 3014c4e4-d9b7-4e21-8e4e-122b1c25367e
+- !<AnimationPlayer/f3d3a258-579b-4854-8447-4cd5e5165370>
+  PrefabRemaps:
+    []
+  Name: Animation Player
+  Enabled: true
+  Autoplay: true
+  ClipRangeType: Frames
+  AnimationClips:
+    - !<AnimationClip>
+      AnimationAsset: !<reference> ae671b40-5ce3-44bc-b6a1-360c0a7b09c1
+      Name: Clip 0
+      Weight: 1.000000
+      PlaybackSpeed: 1.000000
+      Begin: 0.000000
+      End: 238.800003
+      Offset: 0.000000
+      Reversed: false
+      Disabled: false
+      BlendMode: Default
+      ScaleMode: Multiply
+      PlaybackMode: Loop
+- !<ScriptComponent/f3faa916-c99a-4ec9-ad29-8230448026fa>
+  PrefabRemaps:
+    []
+  Name: Outfit Override
+  Enabled: true
+  ScriptAsset: !<reference> 26b13cc3-2db5-475a-885a-36f789ff9208
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      outfitOverrideParameters: '{"items":[{"optionId":"10095288","params":"{}","type":"top","globalType":"top"},{"optionId":"10095215","params":"{}","type":"footwear","globalType":"footwear"},{"optionId":"10095291","params":"{}","type":"bottom","globalType":"bottom"}]}'
+      outfitOverrideList:
+        - type: top
+        - type: footwear
+        - type: bottom
+  ScriptTypes:
+    "":
+      {}
 - !<ScreenTransform/f4c3ef79-73cf-4f44-8e59-7e95690c3526>
   PrefabRemaps:
     []
