@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 💬 Quick Question
+    url: https://discord.gg/your-server
+    about: For quick questions, use our Discord
+  - name: 📚 Documentation
+    url: https://github.com/your-org/the-impossible-trial/wiki
+    about: Check docs before opening an issue
