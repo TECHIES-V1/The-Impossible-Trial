@@ -1,0 +1,54 @@
+- !<AssetImportMetadata/237e91a3-9de9-41fc-b52a-b7e0ddfb5d0d>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 6a8bbcf8-b468-4a9c-8a07-1980130a443f
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 6a8bbcf8-b468-4a9c-8a07-1980130a443f
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    USE_EASY_LENS: ""
+  AssetDataMap:
+    JavaScriptAsset: !<own> 54255005-ae5b-43bc-bf65-7b64e6cd7a42
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/54255005-ae5b-43bc-bf65-7b64e6cd7a42>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: c1da1d06-23f7-45da-bf60-c102a09854ae
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    bitmoji_mellina: false
+    bitmoji_player: false
+    game_title: false
+    leaderboard_button: false
+    play_button: false
+    welcome_bg: false
+    welcome_message: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - welcome_bg: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      bitmoji_player: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      game_title: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      bitmoji_mellina: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      welcome_message: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      play_button: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      leaderboard_button: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
